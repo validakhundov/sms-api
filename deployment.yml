@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sms-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: sms-api
+  template:
+    metadata:
+      labels:
+        name: sms-api
+    spec:
+      containers:
+        - name: sms-api
+          image: sms-api
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
